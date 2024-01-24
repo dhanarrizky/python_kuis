@@ -1,0 +1,42 @@
+{% extends "base.html.jinja" %}
+{% block title%}Index{% endblock %}
+
+{% block content%}
+     <div class="container-fluid pt-4 px-4">
+                            <div class="row g-4">
+                                <div class="col">
+                                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                                        <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                        <div class="ms-3">
+                                            <p class="mb-2">Nama</p>
+                                            <h6 class="mb-0">{{ user.username }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                                        <div class="ms-3">
+                                            <p class="mb-2">Total Score</p>
+                                            <h6 class="mb-0">{{ skor.skor }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+            <!-- Sale & Revenue End -->
+            <!-- Sales Chart Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div>
+                        <div class="bg-secondary text-center rounded p-4">
+                            <div>
+                                <h1>Hallo {{ user.nickname }}, Apakah Anda Siap Untuk Mengerjakan Kuis untuk Hari ini ?</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sales Chart End -->
+
+{% endblock %}

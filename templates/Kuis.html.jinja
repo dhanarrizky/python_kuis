@@ -1,0 +1,85 @@
+{% extends "base.html.jinja" %}
+{% block title%}Kuis Page{% endblock %}
+
+{% block content%}
+    <!-- Form Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Question</h6>
+                            <form method="post">
+                                <input type="hidden" name="idQuestion" value="{{ question.id }}">
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Soal</label>
+                                    <div class="col-sm-10">
+                                        {{ question.question }}
+                                    </div>
+                                </div>
+                                <fieldset class="row mb-3">
+                                    <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                id="gridRadios1" value="{{ question.option1 }}">
+                                            <label class="form-check-label" for="gridRadios1">
+                                                {{ question.option1 }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                id="gridRadios2" value="{{ question.option2 }}">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                {{ question.option2 }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                id="gridRadios1" value="{{ question.option3 }}">
+                                            <label class="form-check-label" for="gridRadios1">
+                                                {{ question.option3 }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                id="gridRadios2" value="{{ question.option4 }}">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                {{ question.option4 }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div >
+                                    <button type="submit" class="btn btn-primary">Selanjutnya</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Rank</h6>
+                            </div>
+
+                            {% for rank in get_rank %}
+                                <div class="d-flex align-items-center border-bottom py-3">
+                                    <div class="w-100 ms-3">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            {% if rank.nickname == user.nickname %}
+                                                <h5 class="mb-0">{{ rank.nickname }}</h5>
+                                            {% else %}
+                                                <h6 class="mb-0">{{ rank.nickname }}</h6>
+                                            {% endif %}
+                                            <small>Skor : {{ rank.skor }}</small>
+                                        </div>
+                                        {# <span></span> #}
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Form End -->
+{% endblock %}
